@@ -46,10 +46,11 @@ interface CardProps {
   text: string;
   answerOptions: string[] | boolean[];
   answer: string | boolean;
-  setCardNumber: (a: number) => number
+  cardNumber: number;
+  setCardNumber: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function QuizCard({ id, text, answerOptions, answer, setCardNumber }: CardProps) {
+export default function QuizCard({ id, text, answerOptions, answer, cardNumber, setCardNumber }: CardProps) {
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [isAnswered, setIsAnswered] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
@@ -72,7 +73,7 @@ export default function QuizCard({ id, text, answerOptions, answer, setCardNumbe
           <Option key={index} type="button" onClick={() => setSelectedAnswer(option.toString())}>{option.toString()}</Option>
         ))}
       </OptionsContainer>
-      {isAnswered && <NextBtn onClick={() => setCardNumber(id + 1)}>NEXT</NextBtn>}
+      {isAnswered && <NextBtn onClick={() => setCardNumber(cardNumber + 1)}>NEXT</NextBtn>}
     </CardWrapper>
   )
 }

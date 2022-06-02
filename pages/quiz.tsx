@@ -30,7 +30,7 @@ const data = [
 ]
 
 const Quiz: NextPage = () => {
-  const [cardNumber, setCardNumber] = useState(1)
+  const [cardNumber, setCardNumber] = useState(0)
   return (
     <>
       <h1>Quiz</h1>
@@ -43,6 +43,7 @@ const Quiz: NextPage = () => {
           text={data[cardNumber].text}
           answerOptions={data[cardNumber].answerOptions}
           answer={data[cardNumber].answer}
+          cardNumber={cardNumber}
           setCardNumber={setCardNumber}
         />
       )}
