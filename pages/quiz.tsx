@@ -1,34 +1,60 @@
+import { useState } from 'react';
 import { NextPage } from "next";
 import Link from "next/link";
+import QuizCard from "../components/QuizCard";
 
 const data = [
   {
     id: 1,
-    question: 'What is a prop in React?',
-    answer: 'A prop is a dynamic piece of information passed into React components.'
+    text: 'What is prop drilling in React?',
+    answerOptions: [
+      "Passing props continually down to more child components.",
+      "A kind of prop type.",
+      "A new React feature.",
+      "A way to style React apps."
+    ],
+    answer: 'Passing props continually down to more child components.'
   },
   {
     id: 2,
-    question: 'True or False. React includes a built in way to handle routing.',
-    answer: 'false'
+    text: 'React includes a built in way to handle routing.',
+    answerOptions: [true, false],
+    answer: false,
   },
   {
     id: 3,
-    question: 'True or False. React hooks were introduced in React version 16.8.0.',
-    answer: 'true'
+    text: 'React hooks were introduced in React version 16.8.0.',
+    answerOptions: [true, false],
+    answer: true
   }
 ]
 
 const Quiz: NextPage = () => {
+  const [cardNumber, setCardNumber] = useState(1)
   return (
     <>
       <h1>Quiz</h1>
       <Link href="/">
         <a>Home</a>
       </Link>
-      {data?.length > 0 && data.map((question) => (
-        <p key={question.id}>{question.id}</p>
-      ))}
+      {data[cardNumber] && (
+        <QuizCard
+          id={data[cardNumber].id}
+          text={data[cardNumber].text}
+          answerOptions={data[cardNumber].answerOptions}
+          answer={data[cardNumber].answer}
+          setCardNumber={setCardNumber}
+        />
+      )}
+      {/* {data?.length > 0 && data.map((question) => (
+        <QuizCard 
+          key={question.id} 
+          id={question.id} 
+          text={question.text}
+          answerOptions={question.answerOptions}
+          answer={question.answer}
+        />
+      ))} */}
     </>
   )
 }
