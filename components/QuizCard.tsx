@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const CardWrapper = styled.div`
   width: 90%;
   padding: 15px 30px 30px;
+  background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
   border-radius: 5px;
   margin: 50px auto;
@@ -20,7 +21,7 @@ const OptionsContainer = styled.div`
 
 const Option = styled.button`
   all: unset;
-  border: 2px solid #ccc;
+  border: 2px solid #eee;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
@@ -34,11 +35,15 @@ const NextBtn = styled.button`
   all: unset;
   cursor: pointer;
   border-radius: 5px;
+  border: 2px solid transparent;
   color: #0A558C;
   background-color: #DCEEFB;
   padding: 5px 10px;
   margin-top: 15px;
   font-size: 14px;
+  &:hover {
+    border: 2px solid #2680C2;
+  }
 `
 
 interface CardProps {

@@ -47,15 +47,6 @@ const Quiz: NextPage = () => {
           setCardNumber={setCardNumber}
         />
       )}
-      {/* {data?.length > 0 && data.map((question) => (
-        <QuizCard 
-          key={question.id} 
-          id={question.id} 
-          text={question.text}
-          answerOptions={question.answerOptions}
-          answer={question.answer}
-        />
-      ))} */}
     </>
   )
 }
