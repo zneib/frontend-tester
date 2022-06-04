@@ -13,10 +13,17 @@ const GlobalState = ({ children }: Props) => {
 
   const [state, dispatch] = useReducer(globalReducer, intialState);
 
+  const updateScore = () => {
+    dispatch({
+      type: 'update_score'
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
-        score: state.score
+        score: state.score,
+        updateScore
       }}
     >
       {children}

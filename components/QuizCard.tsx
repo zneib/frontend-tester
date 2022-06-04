@@ -1,50 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components';
-
-const CardWrapper = styled.div`
-  width: 90%;
-  padding: 15px 30px 30px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  margin: 50px auto;
-  & > h2 {
-    margin: 0;
-  }
-`
-
-const OptionsContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-`
-
-const Option = styled.button`
-  all: unset;
-  border: 2px solid #eee;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  &:hover {
-    border: 2px solid #003E6B;
-  }
-`
-
-const NextBtn = styled.button`
-  all: unset;
-  cursor: pointer;
-  border-radius: 5px;
-  border: 2px solid transparent;
-  color: #0A558C;
-  background-color: #DCEEFB;
-  padding: 5px 10px;
-  margin-top: 15px;
-  font-size: 14px;
-  &:hover {
-    border: 2px solid #2680C2;
-  }
-`
+import globalContext from '../context/globalContext';
+import styles from './QuizCard.module.css';
 
 interface CardProps {
   id: number;
@@ -59,6 +15,9 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [isAnswered, setIsAnswered] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
+  const { score, updateScore } = useContext(globalContext);
+
+  console.log(score)
 
   useEffect(() => {
     if (selectedAnswer === answer.toString()) {
@@ -70,15 +29,16 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   }, [answer, selectedAnswer])
 
   return (
-    <CardWrapper>
+    <div className={styles.cardWrapper}>
       <h2>{id}</h2>
       <p>{text}</p>
-      <OptionsContainer>
+      <div className={styles.optionsWrapper}>
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
-          <Option key={index} type="button" onClick={() => setSelectedAnswer(option.toString())}>{option.toString()}</Option>
+          <button className={styles.option} key={index} type="button" onClick={() => setSelectedAnswer(option.toString())}>{option.toString()}</button>
         ))}
-      </OptionsContainer>
-      {isAnswered && <NextBtn onClick={() => setCardNumber(cardNumber + 1)}>NEXT</NextBtn>}
-    </CardWrapper>
+      </div>
+      {isAnswered && <button className={styles.nextBtn} type="button" onClick={() => setCardNumber(cardNumber + 1)}>NEXT</button>}
+      <button type="button" onClick={updateScore}>Increment Score</button>
+    </div>
   )
 }
