@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import { globalReducer } from './globalReducer';
 import GlobalContext from './globalContext';
+import data from '../data/questions.json';
 
 type Props = {
   children?: JSX.Element | JSX.Element[];
@@ -8,7 +9,9 @@ type Props = {
 
 const GlobalState = ({ children }: Props) => {
   const intialState = {
-    score: 0
+    score: 0,
+    numberOfQuestions: data.length,
+    isQuizFinished: false
   }
 
   const [state, dispatch] = useReducer(globalReducer, intialState);
@@ -19,11 +22,21 @@ const GlobalState = ({ children }: Props) => {
     })
   }
 
+  const finishQuiz = () => {
+    console.log('Finishing quiz...');
+    dispatch({
+      type: 'finish_quiz'
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         score: state.score,
-        updateScore
+        numberOfQuestions: state.numberOfQuestions,
+        isQuizFinished: state.isQuizFinished,
+        updateScore,
+        finishQuiz
       }}
     >
       {children}

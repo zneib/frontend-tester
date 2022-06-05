@@ -1,5 +1,7 @@
 interface GlobalState {
   score: number;
+  numberOfQuestions: number;
+  isQuizFinished: boolean;
 }
 
 interface GlobalAction {
@@ -13,6 +15,11 @@ export const globalReducer = (state: GlobalState, action: GlobalAction) => {
       return {
         ...state,
         score: state.score + 1
+      }
+    case 'finish_quiz':
+      return {
+        ...state,
+        isQuizFinished: true
       }
     default:
       return state;

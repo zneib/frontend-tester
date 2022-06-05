@@ -1,43 +1,22 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NextPage } from "next";
 import Link from "next/link";
 import QuizCard from "../components/QuizCard";
-
-const data = [
-  {
-    id: 1,
-    text: 'What is prop drilling in React?',
-    answerOptions: [
-      "Passing props continually down to more child components.",
-      "A kind of prop type.",
-      "A new React feature.",
-      "A way to style React apps."
-    ],
-    answer: 'Passing props continually down to more child components.'
-  },
-  {
-    id: 2,
-    text: 'React includes a built in way to handle routing.',
-    answerOptions: [true, false],
-    answer: false,
-  },
-  {
-    id: 3,
-    text: 'React hooks were introduced in React version 16.8.0.',
-    answerOptions: [true, false],
-    answer: true
-  }
-]
+import data from '../data/questions.json';
+import globalContext from '../context/globalContext';
+import FinishedQuiz from '../components/FinishedQuiz';
 
 const Quiz: NextPage = () => {
   const [cardNumber, setCardNumber] = useState(0)
+  const [isFinished, setIsFinished] = useState(false)
+  const { isQuizFinished } = useContext(globalContext);
   return (
     <>
       <h1>Quiz</h1>
       <Link href="/">
         <a>Home</a>
       </Link>
-      {data[cardNumber] && (
+      {!isQuizFinished && data[cardNumber] && !isFinished ? (
         <QuizCard
           id={data[cardNumber].id}
           text={data[cardNumber].text}
@@ -46,6 +25,8 @@ const Quiz: NextPage = () => {
           cardNumber={cardNumber}
           setCardNumber={setCardNumber}
         />
+      ) : (
+        <FinishedQuiz />
       )}
     </>
   )

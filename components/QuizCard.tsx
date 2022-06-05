@@ -15,16 +15,31 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [isAnswered, setIsAnswered] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
-  const { score, updateScore } = useContext(globalContext);
+  const { 
+    score, 
+    updateScore, 
+    numberOfQuestions,
+    isQuizFinished,
+    finishQuiz
+  } = useContext(globalContext);
 
-  console.log(score)
+  console.log(isQuizFinished);
+
+  const handleNext = () => {
+    if (selectedAnswer === answer.toString()) {
+      updateScore()
+    }
+    setCardNumber(cardNumber + 1)
+    setIsAnswered(false)
+    setSelectedAnswer('')
+  }
 
   useEffect(() => {
     if (selectedAnswer === answer.toString()) {
-      setIsCorrect(true)
+      setIsCorrect(true);
     }
     if (selectedAnswer) {
-      setIsAnswered(true)
+      setIsAnswered(true);
     }
   }, [answer, selectedAnswer])
 
@@ -37,8 +52,8 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
           <button className={styles.option} key={index} type="button" onClick={() => setSelectedAnswer(option.toString())}>{option.toString()}</button>
         ))}
       </div>
-      {isAnswered && <button className={styles.nextBtn} type="button" onClick={() => setCardNumber(cardNumber + 1)}>NEXT</button>}
-      <button type="button" onClick={updateScore}>Increment Score</button>
+      {isAnswered && id !== numberOfQuestions && <button className={styles.nextBtn} type="button" onClick={handleNext}>NEXT</button>}
+      {selectedAnswer && id === numberOfQuestions &&<button className={styles.nextBtn} type="button" onClick={finishQuiz}>FINISH</button>}
     </div>
   )
 }
