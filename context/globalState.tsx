@@ -23,7 +23,6 @@ const GlobalState = ({ children }: Props) => {
   }
 
   const finishQuiz = () => {
-    console.log('Finishing quiz...');
     dispatch({
       type: 'finish_quiz'
     })

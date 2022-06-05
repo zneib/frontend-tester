@@ -16,7 +16,6 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   const [isAnswered, setIsAnswered] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const { 
-    score, 
     updateScore, 
     numberOfQuestions,
     isQuizFinished,
