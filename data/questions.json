@@ -31,6 +31,6 @@
       "useRef",
       "useLifeCycle"
     ],
-    "answer": true
+    "answer": "useEffect"
   }
 ]

@@ -22,15 +22,20 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
     finishQuiz
   } = useContext(globalContext);
 
-  console.log(isQuizFinished);
-
   const handleNext = () => {
     if (selectedAnswer === answer.toString()) {
-      updateScore()
+      updateScore?.()
     }
     setCardNumber(cardNumber + 1)
     setIsAnswered(false)
     setSelectedAnswer('')
+  }
+
+  const handleFinish = () => {
+    if (selectedAnswer === answer.toString()) {
+      updateScore?.()
+    }
+    finishQuiz?.()
   }
 
   useEffect(() => {
@@ -52,7 +57,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
         ))}
       </div>
       {isAnswered && id !== numberOfQuestions && <button className={styles.nextBtn} type="button" onClick={handleNext}>NEXT</button>}
-      {selectedAnswer && id === numberOfQuestions &&<button className={styles.nextBtn} type="button" onClick={finishQuiz}>FINISH</button>}
+      {selectedAnswer && id === numberOfQuestions &&<button className={styles.nextBtn} type="button" onClick={handleFinish}>FINISH</button>}
     </div>
   )
 }
