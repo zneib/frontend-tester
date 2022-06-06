@@ -15,17 +15,16 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to Frontend Tester
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+          Start the quiz by clicking the button below
         </p>
 
         <div className={styles.grid}>
           <Link href="/quiz">
-            <a>Start Quiz</a>
+            <a className={styles.startBtn}>Start Quiz</a>
           </Link>
         </div>
       </main>
