@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import globalContext from '../context/globalContext';
 import styled from 'styled-components';
+import OptionBtn from './OptionBtn';
+
 
 const CardWrapper = styled.div`
   width: 90%;
@@ -17,14 +19,14 @@ const OptionsWrapper = styled.div`
   gap: 10px;
 `
 
-const OptionBtn = styled.button`
-  all: unset;
-  border: 2px solid #eee;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-`
+// const OptionBtn = styled.button<{ isCorrect: boolean }>`
+//   all: unset;
+//   border: 2px solid ${props => (props.isCorrect ? 'green' : '#eee')};
+//   border-radius: 5px;
+//   padding: 5px 10px;
+//   font-size: 14px;
+//   cursor: pointer;
+// `
 
 const NextBtn = styled.button`
   all: unset;
@@ -75,9 +77,6 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   }
 
   useEffect(() => {
-    if (selectedAnswer === answer.toString()) {
-      setIsCorrect(true);
-    }
     if (selectedAnswer) {
       setIsAnswered(true);
     }
@@ -89,7 +88,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
       <p>{text}</p>
       <OptionsWrapper>
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
-          <OptionBtn key={index} type="button" onClick={() => setSelectedAnswer(option.toString())}>{option.toString()}</OptionBtn>
+          <OptionBtn selectedAnswer={selectedAnswer} key={index} setSelectedAnswer={setSelectedAnswer} text={option.toString()} />
         ))}
       </OptionsWrapper>
       {isAnswered && id !== numberOfQuestions && <NextBtn type="button" onClick={handleNext}>NEXT</NextBtn>}
