@@ -77,6 +77,9 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   }
 
   useEffect(() => {
+    if (selectedAnswer === answer) {
+      setIsCorrect(true);
+    }
     if (selectedAnswer) {
       setIsAnswered(true);
     }
@@ -88,9 +91,17 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
       <p>{text}</p>
       <OptionsWrapper>
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
-          <OptionBtn selectedAnswer={selectedAnswer} key={index} setSelectedAnswer={setSelectedAnswer} text={option.toString()} />
+          <OptionBtn 
+            answer={answer}
+            selectedAnswer={selectedAnswer} 
+            key={index} 
+            setSelectedAnswer={setSelectedAnswer} 
+            text={option.toString()} 
+          />
         ))}
       </OptionsWrapper>
+      {isCorrect && isAnswered && <p>That is correct!</p>}
+      {!isCorrect && isAnswered && <p>That is incorrect.</p>}
       {isAnswered && id !== numberOfQuestions && <NextBtn type="button" onClick={handleNext}>NEXT</NextBtn>}
       {selectedAnswer && id === numberOfQuestions &&<NextBtn type="button" onClick={handleFinish}>FINISH</NextBtn>}
     </CardWrapper>
