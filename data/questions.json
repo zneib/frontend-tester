@@ -32,5 +32,16 @@
       "useLifeCycle"
     ],
     "answer": "useEffect"
+  },
+  {
+    "id": 5,
+    "text": "What is the correct way to add a class name to a React Component?",
+    "answerOptions": [
+      "classname",
+      "ClassName",
+      "className",
+      "Classname"
+    ],
+    "answer": "className"
   }
 ]

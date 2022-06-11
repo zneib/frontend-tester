@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import OptionBtn from './OptionBtn';
 import { CardWrapper } from '../styles/sharedStyles';
 
+const CardNumber = styled.span`
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-weight: bold;
+`
+
 const OptionsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -71,7 +78,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
 
   return (
     <CardWrapper>
-      <h2>{id}</h2>
+      <CardNumber>{id}</CardNumber>
       <p>{text}</p>
       <OptionsWrapper>
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
