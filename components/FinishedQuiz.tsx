@@ -1,13 +1,19 @@
 import { useContext } from 'react';
-import styles from './FinishedQuiz.module.css';
 import globalContext from '../context/globalContext';
+import styled from 'styled-components';
+import { CardWrapper } from '../styles/sharedStyles';
+
+const Header = styled.h1`
+  width: 100%;
+  margin: 0 auto;
+`
 
 export default function FinishedQuiz() {
   const { score } = useContext(globalContext);
   return (
-    <div className={styles.cardWrapper}>
-      <p>You are finished!</p>
+    <CardWrapper finalCard={true}>
+      <Header>Quiz Finished!</Header>
       <p>Your final score was: <span style={{ fontWeight: 'bold' }}>{score}</span></p>
-    </div>
+    </CardWrapper>
   )
 }

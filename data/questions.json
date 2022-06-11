@@ -13,14 +13,14 @@
   {
     "id": 2,
     "text": "React includes a built in way to handle routing.",
-    "answerOptions": [true, false],
-    "answer": false
+    "answerOptions": ["true", "false"],
+    "answer": "false"
   },
   {
     "id": 3,
     "text": "React hooks were introduced in React version 16.8.0.",
-    "answerOptions": [true, false],
-    "answer": true
+    "answerOptions": ["true", "false"],
+    "answer": "true"
   },
   {
     "id": 4,

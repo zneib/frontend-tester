@@ -2,31 +2,13 @@ import { useState, useEffect, useContext } from 'react';
 import globalContext from '../context/globalContext';
 import styled from 'styled-components';
 import OptionBtn from './OptionBtn';
-
-
-const CardWrapper = styled.div`
-  width: 90%;
-  padding: 15px 30px 30px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  margin: 50px auto;
-`
+import { CardWrapper } from '../styles/sharedStyles';
 
 const OptionsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 `
-
-// const OptionBtn = styled.button<{ isCorrect: boolean }>`
-//   all: unset;
-//   border: 2px solid ${props => (props.isCorrect ? 'green' : '#eee')};
-//   border-radius: 5px;
-//   padding: 5px 10px;
-//   font-size: 14px;
-//   cursor: pointer;
-// `
 
 const NextBtn = styled.button`
   all: unset;
@@ -44,7 +26,7 @@ interface CardProps {
   id: number;
   text: string;
   answerOptions: string[] | boolean[];
-  answer: string | boolean;
+  answer: string;
   cardNumber: number;
   setCardNumber: React.Dispatch<React.SetStateAction<number>>
 }
@@ -77,13 +59,15 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   }
 
   useEffect(() => {
-    if (selectedAnswer === answer) {
+    if (selectedAnswer === answer && isAnswered) {
       setIsCorrect(true);
+    } else if (selectedAnswer !== answer && isAnswered) {
+      setIsCorrect(false);
     }
     if (selectedAnswer) {
       setIsAnswered(true);
     }
-  }, [answer, selectedAnswer])
+  }, [answer, isAnswered, selectedAnswer])
 
   return (
     <CardWrapper>
