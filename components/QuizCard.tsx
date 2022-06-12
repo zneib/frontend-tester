@@ -22,11 +22,14 @@ const NextBtn = styled.button`
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid transparent;
-  color: #0A558C;
-  background-color: #DCEEFB;
+  color: var(--gray-dark);
+  background-color: var(--gray-ten);
   padding: 5px 10px;
   margin-top: 15px;
   font-size: 14px;
+  &:hover {
+    border: 2px solid var(--gray-four);
+  }
 `
 
 interface CardProps {

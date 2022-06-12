@@ -1,3 +1,15 @@
+:root {
+  --correct: #14919B;
+  --incorrect: #BA2525;
+  --gray-dark: #102A43;
+  --gray-one: #627D98;
+  --gray-two: #829AB1;
+  --gray-three: #9FB3C8;
+  --gray-four: #BCCCDC;
+  --gray-nine: #D9E2EC;
+  --gray-ten: #F0F4F8;
+}
+
 * {
   box-sizing: border-box;
 }

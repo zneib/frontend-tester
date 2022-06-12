@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Option = styled.button<{ isCorrect: boolean }>`
+const Option = styled.button<{ isCorrect: boolean, isAnswered: boolean }>`
   all: unset;
-  border: 2px solid ${props => (props.isCorrect ? 'green' : '#eee')};
+  border: 2px solid #eee;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
@@ -12,6 +12,8 @@ const Option = styled.button<{ isCorrect: boolean }>`
     opacity: 0.5;
     cursor: not-allowed;
   }
+  /* ${props => (props.isCorrect && props.isAnswered ? 'border: 2px solid var(--correct)' : '#eee')};
+  ${props => (!props.isCorrect && props.isAnswered ? 'border: 2px solid var(--incorrect)' : '#eee')}; */
 `
 
 interface OptionBtnProps {
@@ -36,6 +38,6 @@ export default function OptionBtn({ answer, cardsDisabled, selectedAnswer, text,
   }, [answer, selectedAnswer, text])
 
   return (
-    <Option disabled={cardsDisabled} isCorrect={isCorrect} type="button" onClick={() => setSelectedAnswer(text.toString())}>{text}</Option>
+    <Option disabled={cardsDisabled} isCorrect={isCorrect} isAnswered={selectedAnswer !== ''} type="button" onClick={() => setSelectedAnswer(text.toString())}>{text}</Option>
   )
 }
