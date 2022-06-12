@@ -11,7 +11,7 @@ const Quiz: NextPage = () => {
   const { isQuizFinished } = useContext(globalContext);
   return (
     <>
-      <h1>Quiz</h1>
+      <h1 style={{ width: '100%', margin: '0 auto'}}>React - Quiz</h1>
       <Link href="/">
         <a>Home</a>
       </Link>

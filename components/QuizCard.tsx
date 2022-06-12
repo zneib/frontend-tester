@@ -40,8 +40,10 @@ interface CardProps {
 
 export default function QuizCard({ id, text, answerOptions, answer, cardNumber, setCardNumber }: CardProps) {
   const [selectedAnswer, setSelectedAnswer] = useState('')
-  const [isAnswered, setIsAnswered] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(false)
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [cardsDisabled, setCardsDisabled] = useState(false);
+
   const { 
     updateScore, 
     numberOfQuestions,
@@ -56,6 +58,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
     setCardNumber(cardNumber + 1)
     setIsAnswered(false)
     setSelectedAnswer('')
+    setCardsDisabled(false);
   }
 
   const handleFinish = () => {
@@ -73,6 +76,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
     }
     if (selectedAnswer) {
       setIsAnswered(true);
+      setCardsDisabled(true);
     }
   }, [answer, isAnswered, selectedAnswer])
 
@@ -84,6 +88,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
           <OptionBtn 
             answer={answer}
+            cardsDisabled={cardsDisabled}
             selectedAnswer={selectedAnswer} 
             key={index} 
             setSelectedAnswer={setSelectedAnswer} 

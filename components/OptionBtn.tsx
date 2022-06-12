@@ -8,10 +8,15 @@ const Option = styled.button<{ isCorrect: boolean }>`
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `
 
 interface OptionBtnProps {
   answer: string;
+  cardsDisabled: boolean;
   selectedAnswer: string;
   text: string;
   key: number;
@@ -19,7 +24,7 @@ interface OptionBtnProps {
 }
 
 
-export default function OptionBtn({ answer, selectedAnswer, text, setSelectedAnswer } : OptionBtnProps) {
+export default function OptionBtn({ answer, cardsDisabled, selectedAnswer, text, setSelectedAnswer } : OptionBtnProps) {
   const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
@@ -31,6 +36,6 @@ export default function OptionBtn({ answer, selectedAnswer, text, setSelectedAns
   }, [answer, selectedAnswer, text])
 
   return (
-    <Option isCorrect={isCorrect} type="button" onClick={() => setSelectedAnswer(text.toString())}>{text}</Option>
+    <Option disabled={cardsDisabled} isCorrect={isCorrect} type="button" onClick={() => setSelectedAnswer(text.toString())}>{text}</Option>
   )
 }
