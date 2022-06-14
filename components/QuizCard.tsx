@@ -11,6 +11,10 @@ const CardNumber = styled.span`
   font-weight: bold;
 `
 
+const QuestionText = styled.p<{ disableText: boolean}>`
+  opacity: ${props => props.disableText ? '0.2' : '1'};
+`
+
 const OptionsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -86,7 +90,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   return (
     <CardWrapper>
       <CardNumber>{id}</CardNumber>
-      <p>{text}</p>
+      <QuestionText disableText={cardsDisabled}>{text}</QuestionText>
       <OptionsWrapper>
         {answerOptions?.length > 0 && answerOptions.map((option, index) => (
           <OptionBtn 
@@ -99,8 +103,8 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
           />
         ))}
       </OptionsWrapper>
-      {isCorrect && isAnswered && <p>That is correct!</p>}
-      {!isCorrect && isAnswered && <p>That is incorrect.</p>}
+      {isCorrect && isAnswered && <p style={{ fontSize: '12px' }}>That is correct!</p>}
+      {!isCorrect && isAnswered && <p style={{ fontSize: '12px'}}>That is incorrect.</p>}
       {isAnswered && id !== numberOfQuestions && <NextBtn type="button" onClick={handleNext}>NEXT</NextBtn>}
       {selectedAnswer && id === numberOfQuestions &&<NextBtn type="button" onClick={handleFinish}>FINISH</NextBtn>}
     </CardWrapper>
