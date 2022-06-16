@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "text": "How do you perform a if check in Svelte components?",
+    "answerOptions": [
+      "if",
+      "<if></if>",
+      "{#if }{/if}",
+      "[if][/if]"
+    ],
+    "answer": "{#if }{/if}"
+  },
+  {
+    "id": 2,
+    "text": "How would a click directive be added in Svelte?",
+    "answerOptions": [
+      "onClick",
+      "on:click",
+      "on-click",
+      "OnClick"
+    ],
+    "answer": "on:click"
+  }
+]

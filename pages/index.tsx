@@ -24,7 +24,10 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <Link href="/quiz">
-            <a className={styles.startBtn}>Start Quiz</a>
+            <a className={styles.startBtn}>Start React Quiz</a>
+          </Link>
+          <Link href="/quiz">
+            <a className={styles.startBtn}>Start Svelte Quiz</a>
           </Link>
         </div>
       </main>

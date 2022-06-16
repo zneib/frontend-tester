@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { globalReducer } from './globalReducer';
 import GlobalContext from './globalContext';
-import data from '../data/questions.json';
+import data from '../data/react-questions.json';
 
 type Props = {
   children?: JSX.Element | JSX.Element[];

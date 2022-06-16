@@ -2,11 +2,11 @@ import { useState, useContext } from 'react';
 import { NextPage } from "next";
 import Link from "next/link";
 import QuizCard from "../components/QuizCard";
-import data from '../data/react-questions.json';
+import data from '../data/svelte-questions.json';
 import globalContext from '../context/globalContext';
 import FinishedQuiz from '../components/FinishedQuiz';
 
-const Quiz: NextPage = () => {
+const SvelteQuiz: NextPage = () => {
   const [cardNumber, setCardNumber] = useState(0)
   const { isQuizFinished } = useContext(globalContext);
   return (
@@ -31,4 +31,4 @@ const Quiz: NextPage = () => {
   )
 }
 
-export default Quiz
+export default SvelteQuiz
