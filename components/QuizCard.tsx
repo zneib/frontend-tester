@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import globalContext from '../context/globalContext';
 import styled from 'styled-components';
 import OptionBtn from './OptionBtn';
-import { CardWrapper } from '../styles/sharedStyles';
+import { CardWrapper, CardHeader } from '../styles/sharedStyles';
 
 const CardNumber = styled.span`
   position: absolute;
@@ -88,25 +88,28 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   }, [answer, isAnswered, selectedAnswer])
 
   return (
-    <CardWrapper>
-      <CardNumber>{id}</CardNumber>
-      <QuestionText disableText={cardsDisabled}>{text}</QuestionText>
-      <OptionsWrapper>
-        {answerOptions?.length > 0 && answerOptions.map((option, index) => (
-          <OptionBtn 
-            answer={answer}
-            cardsDisabled={cardsDisabled}
-            selectedAnswer={selectedAnswer} 
-            key={index} 
-            setSelectedAnswer={setSelectedAnswer} 
-            text={option.toString()} 
-          />
-        ))}
-      </OptionsWrapper>
-      {isCorrect && isAnswered && <p style={{ fontSize: '12px' }}>That is correct!</p>}
-      {!isCorrect && isAnswered && <p style={{ fontSize: '12px'}}>That is incorrect.</p>}
-      {isAnswered && id !== numberOfQuestions && <NextBtn type="button" onClick={handleNext}>NEXT</NextBtn>}
-      {selectedAnswer && id === numberOfQuestions &&<NextBtn type="button" onClick={handleFinish}>FINISH</NextBtn>}
-    </CardWrapper>
+    <>
+      <CardWrapper>
+        <CardHeader>{document.location.href.includes('react') ? 'React' : 'Svelte'}</CardHeader>
+        <CardNumber>{id}</CardNumber>
+        <QuestionText disableText={cardsDisabled}>{text}</QuestionText>
+        <OptionsWrapper>
+          {answerOptions?.length > 0 && answerOptions.map((option, index) => (
+            <OptionBtn 
+              answer={answer}
+              cardsDisabled={cardsDisabled}
+              selectedAnswer={selectedAnswer} 
+              key={index} 
+              setSelectedAnswer={setSelectedAnswer} 
+              text={option.toString()} 
+            />
+          ))}
+        </OptionsWrapper>
+        {isCorrect && isAnswered && <p style={{ fontSize: '12px' }}>That is correct!</p>}
+        {!isCorrect && isAnswered && <p style={{ fontSize: '12px'}}>That is incorrect.</p>}
+        {isAnswered && id !== numberOfQuestions && <NextBtn type="button" onClick={handleNext}>NEXT</NextBtn>}
+        {selectedAnswer && id === numberOfQuestions &&<NextBtn type="button" onClick={handleFinish}>FINISH</NextBtn>}
+      </CardWrapper>
+    </>
   )
 }

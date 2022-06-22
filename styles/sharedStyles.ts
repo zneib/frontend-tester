@@ -12,3 +12,9 @@ export const CardWrapper = styled.div<{ finalCard?: boolean }>`
   margin: 50px auto;
   ${props => props.finalCard && 'text-align: center'};
 `
+
+export const CardHeader = styled.h1`
+  position: absolute;
+  top: -65px;
+  left: 0;
+`

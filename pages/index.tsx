@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <Link href="/quiz">
+          <Link href="/react-quiz">
             <a className={styles.startBtn}>Start React Quiz</a>
           </Link>
           <Link href="/quiz">
