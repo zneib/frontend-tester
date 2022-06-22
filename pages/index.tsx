@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           <Link href="/react-quiz">
             <a className={styles.startBtn}>Start React Quiz</a>
           </Link>
-          <Link href="/quiz">
+          <Link href="/svelte-quiz">
             <a className={styles.startBtn}>Start Svelte Quiz</a>
           </Link>
         </div>

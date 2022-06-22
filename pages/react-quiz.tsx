@@ -11,9 +11,6 @@ const Quiz: NextPage = () => {
   const { isQuizFinished } = useContext(globalContext);
   return (
     <>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
       {!isQuizFinished && data[cardNumber] ? (
         <QuizCard
           id={data[cardNumber].id}

@@ -50,6 +50,11 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [cardsDisabled, setCardsDisabled] = useState(false);
+  const [title, setTitle] = useState('');
+
+  useEffect(() => {
+    document.location.href.includes('react') ? setTitle('React') : setTitle('Svelte');
+  }, [])
 
   const { 
     updateScore, 
@@ -90,7 +95,7 @@ export default function QuizCard({ id, text, answerOptions, answer, cardNumber, 
   return (
     <>
       <CardWrapper>
-        <CardHeader>{document.location.href.includes('react') ? 'React' : 'Svelte'}</CardHeader>
+        <CardHeader>{title}</CardHeader>
         <CardNumber>{id}</CardNumber>
         <QuestionText disableText={cardsDisabled}>{text}</QuestionText>
         <OptionsWrapper>
