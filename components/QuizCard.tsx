@@ -27,12 +27,12 @@ const NextBtn = styled.button`
   border-radius: 5px;
   border: 2px solid transparent;
   color: var(--gray-dark);
-  background-color: var(--gray-ten);
+  background-color: var(--grey-ten);
   padding: 5px 10px;
   margin-top: 15px;
   font-size: 14px;
   &:hover {
-    border: 2px solid var(--gray-four);
+    border: 2px solid var(--grey-four);
   }
 `
 

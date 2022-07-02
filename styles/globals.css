@@ -2,12 +2,16 @@
   --correct: #14919B;
   --incorrect: #BA2525;
   --gray-dark: #102A43;
-  --gray-one: #627D98;
-  --gray-two: #829AB1;
-  --gray-three: #9FB3C8;
-  --gray-four: #BCCCDC;
-  --gray-nine: #D9E2EC;
-  --gray-ten: #F0F4F8;
+  --grey-one: #102A43;
+  --grey-two: #243B53;
+  --grey-three: #334E68;
+  --grey-four: #486581;
+  --grey-five: #627D98;
+  --grey-six: #829AB1;
+  --grey-seven: #9FB3C8;
+  --grey-eight: #BCCCDC;
+  --grey-nine: #D9E2EC;
+  --grey-ten: #F0F4F8;
 }
 
 * {
