@@ -43,5 +43,16 @@
       "Classname"
     ],
     "answer": "className"
+  },
+  {
+    "id": 6,
+    "text": "What is a prop type?",
+    "answerOptions": [
+      "A data type for a property passed into a component.",
+      "The quality of a property.",
+      "The way to define state.",
+      "A lifecycle method."
+    ],
+    "answer": "A data type for a property passed into a component."
   }
 ]
