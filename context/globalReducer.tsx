@@ -21,6 +21,11 @@ export const globalReducer = (state: GlobalState, action: GlobalAction) => {
         ...state,
         isQuizFinished: true
       }
+    case 'reset_quiz':
+      return {
+        ...state,
+        isQuizFinished: false
+      }
     default:
       return state;
   }

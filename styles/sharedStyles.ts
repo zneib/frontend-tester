@@ -18,3 +18,15 @@ export const CardHeader = styled.h1`
   top: -65px;
   left: 0;
 `
+
+export const Button = styled.button`
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 2px solid var(--grey-eight);
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid var(--grey-five);
+  }
+`

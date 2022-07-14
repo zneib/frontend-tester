@@ -28,6 +28,12 @@ const GlobalState = ({ children }: Props) => {
     })
   }
 
+  const resetQuiz = () => {
+    dispatch({
+      type: 'reset_quiz'
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -35,7 +41,8 @@ const GlobalState = ({ children }: Props) => {
         numberOfQuestions: state.numberOfQuestions,
         isQuizFinished: state.isQuizFinished,
         updateScore,
-        finishQuiz
+        finishQuiz,
+        resetQuiz
       }}
     >
       {children}

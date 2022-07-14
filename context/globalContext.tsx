@@ -6,6 +6,7 @@ interface GlobalContextInterface {
   isQuizFinished: boolean;
   updateScore?: () => void;
   finishQuiz?: () => void;
+  resetQuiz?: () => void;
 }
 
 const defaultState = {
