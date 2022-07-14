@@ -19,15 +19,12 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Start the quiz by clicking the button below
+          Go to the quiz page to get started
         </p>
 
         <div className={styles.grid}>
-          <Link href="/react-quiz">
-            <a className={styles.startBtn}>Start React Quiz</a>
-          </Link>
-          <Link href="/svelte-quiz">
-            <a className={styles.startBtn}>Start Svelte Quiz</a>
+          <Link href="/quizzes">
+            Quiz Page
           </Link>
         </div>
       </main>
