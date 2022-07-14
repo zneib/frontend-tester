@@ -3,6 +3,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import styled from 'styled-components';
+
+const LinkStyle = styled.a`
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #ccc;
+  }
+`
 
 const Home: NextPage = () => {
   return (
@@ -24,7 +37,7 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <Link href="/quizzes">
-            Quiz Page
+            <LinkStyle>Quiz Page</LinkStyle>
           </Link>
         </div>
       </main>
