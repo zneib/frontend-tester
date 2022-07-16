@@ -11,7 +11,11 @@ const GlobalState = ({ children }: Props) => {
   const intialState = {
     score: 0,
     numberOfQuestions: data.length,
-    isQuizFinished: false
+    isQuizFinished: false,
+    testResults: {
+      react: 0,
+      svelte: 0
+    }
   }
 
   const [state, dispatch] = useReducer(globalReducer, intialState);
@@ -40,6 +44,7 @@ const GlobalState = ({ children }: Props) => {
         score: state.score,
         numberOfQuestions: state.numberOfQuestions,
         isQuizFinished: state.isQuizFinished,
+        testResults: state.testResults,
         updateScore,
         finishQuiz,
         resetQuiz

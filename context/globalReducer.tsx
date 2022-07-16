@@ -2,6 +2,7 @@ interface GlobalState {
   score: number;
   numberOfQuestions: number;
   isQuizFinished: boolean;
+  testResults: {react: number, svelte: number};
 }
 
 interface GlobalAction {

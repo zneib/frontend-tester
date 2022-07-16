@@ -4,6 +4,7 @@ interface GlobalContextInterface {
   score: number;
   numberOfQuestions: number;
   isQuizFinished: boolean;
+  testResults: {react: number, svelte: number};
   updateScore?: () => void;
   finishQuiz?: () => void;
   resetQuiz?: () => void;
