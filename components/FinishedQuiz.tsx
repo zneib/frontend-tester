@@ -9,14 +9,18 @@ const Header = styled.h1`
   margin: 0 auto;
 `
 
-export default function FinishedQuiz() {
+interface FinishedQuizProps {
+  finishFn: (() => void) | undefined;
+}
+
+export default function FinishedQuiz({ finishFn }: FinishedQuizProps) {
   const { score, resetQuiz } = useContext(globalContext);
   return (
     <CardWrapper finalCard={true}>
       <Header>Quiz Finished!</Header>
       <p>Your final score was: <span style={{ fontWeight: 'bold' }}>{score}</span></p>
       <Link href="/quizzes">
-        <Button onClick={resetQuiz}>Finish</Button>
+        <Button onClick={finishFn}>Finish</Button>
       </Link>
     </CardWrapper>
   )

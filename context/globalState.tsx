@@ -38,6 +38,13 @@ const GlobalState = ({ children }: Props) => {
     })
   }
 
+  const setReactScore = () => {
+    dispatch({
+      type: 'set_global_react_score',
+      payload: state.score
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -47,7 +54,8 @@ const GlobalState = ({ children }: Props) => {
         testResults: state.testResults,
         updateScore,
         finishQuiz,
-        resetQuiz
+        resetQuiz,
+        setReactScore
       }}
     >
       {children}

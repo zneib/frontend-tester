@@ -8,6 +8,7 @@ interface GlobalContextInterface {
   updateScore?: () => void;
   finishQuiz?: () => void;
   resetQuiz?: () => void;
+  setReactScore?: () => void;
 }
 
 const defaultState = {
@@ -15,7 +16,9 @@ const defaultState = {
   numberOfQuestions: 0,
   isQuizFinished: false,
   updateScore: () => {},
-  finishQuiz: () => {}
+  finishQuiz: () => {},
+  resetQuiz: () => {},
+  setReactScore: () => {}
 }
 
 const globalContext = createContext<GlobalContextInterface>(defaultState);

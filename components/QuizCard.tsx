@@ -46,7 +46,7 @@ interface CardProps {
 }
 
 export default function QuizCard({ id, text, answerOptions, answer, cardNumber, setCardNumber }: CardProps) {
-  const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [selectedAnswer, setSelectedAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [cardsDisabled, setCardsDisabled] = useState(false);

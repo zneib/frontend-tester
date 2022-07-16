@@ -8,7 +8,7 @@ import FinishedQuiz from '../components/FinishedQuiz';
 
 const Quiz: NextPage = () => {
   const [cardNumber, setCardNumber] = useState(0)
-  const { isQuizFinished } = useContext(globalContext);
+  const { isQuizFinished, setReactScore } = useContext(globalContext);
   return (
     <>
       {!isQuizFinished && data[cardNumber] ? (
@@ -21,7 +21,7 @@ const Quiz: NextPage = () => {
           setCardNumber={setCardNumber}
         />
       ) : (
-        <FinishedQuiz />
+        <FinishedQuiz finishFn={setReactScore} />
       )}
     </>
   )

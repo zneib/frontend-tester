@@ -20,6 +20,9 @@ export default function Nav() {
       <Link href="/quizzes">
         <a>Quizzes</a>
       </Link>
+      <Link href="/results">
+        <a>Results</a>
+      </Link>
       <Link href="/">
         <a>About</a>
       </Link>

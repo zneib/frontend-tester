@@ -27,6 +27,11 @@ export const globalReducer = (state: GlobalState, action: GlobalAction) => {
         ...state,
         isQuizFinished: false
       }
+    case 'set_global_react_score':
+      return {
+        ...state,
+        testResults: { react: action.payload, svelte: state.testResults['svelte']}
+      }
     default:
       return state;
   }
