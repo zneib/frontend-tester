@@ -7,7 +7,7 @@ interface GlobalState {
 
 interface GlobalAction {
   type: string;
-  payload?: number;
+  payload: string | number;
 }
 
 export const globalReducer = (state: GlobalState, action: GlobalAction) => {
