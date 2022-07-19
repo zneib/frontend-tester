@@ -22,19 +22,22 @@ const GlobalState = ({ children }: Props) => {
 
   const updateScore = () => {
     dispatch({
-      type: 'update_score'
+      type: 'update_score',
+      payload: ''
     })
   }
 
   const finishQuiz = () => {
     dispatch({
-      type: 'finish_quiz'
+      type: 'finish_quiz',
+      payload: ''
     })
   }
 
   const resetQuiz = () => {
     dispatch({
-      type: 'reset_quiz'
+      type: 'reset_quiz',
+      payload: ''
     })
   }
 
